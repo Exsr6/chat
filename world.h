@@ -2,6 +2,7 @@
 #include <array>
 #include "tile.h"
 #include "builder.h"
+#include "Message.h"
 
 #ifndef WORLD_HPP
 #define WORLD_HPP
@@ -35,6 +36,10 @@ class world {
         void move(const sf::Vector2i& pos);
         void place(const sf::Vector2i& pos);
         void select(const sf::Vector2i& pos);
+        void ProcessPlace();
+        void ProcessSelect();
+        void ProcessMove();
+        void ProcessBuild();
         bool noBuilder(const sf::Vector2i& pos);
         bool nearSelectecBuilder(const sf::Vector2i& pos);
         bool noDome(const sf::Vector2i& pos);

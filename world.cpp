@@ -148,10 +148,52 @@ void world::select(const sf::Vector2i& pos)
     }
 }
 
+void world::ProcessSelect()
+{
+
+}
+
+void world::ProcessMove()
+{
+
+}
+
+void world::ProcessPlace()
+{
+
+}
+
+void world::ProcessBuild()
+{
+
+}
+
 void world::update()
 {
     // Message Processes
-
+    switch(msg.msgType){
+        case MsgType::Select:
+            std::cout << "MsgType::Select\n";
+            ProcessSelect(msg);
+            break;
+        case MsgType::Move:
+            std::cout << "MsgType::Move\n";
+            ProcessMove(msg);
+            break;
+        case MsgType::Build:
+            std::cout << "MsgType::Build\n";
+            ProcessBuild(msg);
+            break;
+        case MsgType::Place:
+            std::cout << "MsgType::Place\n";
+            ProcessPlace(msg);
+            break;
+        case MsgType::Rand:
+            std::cout << "MsgType::Rand\n";
+            break;
+        default:
+            break;
+    }
     static bool clicked = false;
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !clicked)
     {
