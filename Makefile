@@ -8,13 +8,16 @@ LDLIBS=
 LIBS=
 CPP=g++
 
-all: client
+all: server client
 
 # server: server.o accepter.o receiver.o
 # 	$(CPP) $(CXXFLAGS) $(LDFLAGS) $(LIBS) $^ -o $@ $(CFLAGS)
 
-client: client.o receiver.o accepter.o server.o
+client: main.o entity.o tile.o builder.o world.o game.o client.o message.o
+	$(CPP) $(CXXFLAGS) $(LDFLAGS) $(LIBS) $^ -o $@ $(CFLAGS)
+
+server:  receiver.o accepter.o server.o message.o
 	$(CPP) $(CXXFLAGS) $(LDFLAGS) $(LIBS) $^ -o $@ $(CFLAGS)
 
 clean:
-	\rm -f *.o client
+	\rm -f *.o server client

@@ -150,6 +150,8 @@ void world::select(const sf::Vector2i& pos)
 
 void world::update()
 {
+    // Message Processes
+
     static bool clicked = false;
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !clicked)
     {
